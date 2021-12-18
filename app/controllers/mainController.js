@@ -41,14 +41,23 @@ const mainController = {
           next();
         }
 
-        //  if the variable is not null, we pass it on to the 'article' view and we render it
-        response.render('article', {
-          current: 'article',
-          figurine
-        })
+        //  if the variable is not null, we use the dataMapper method to find reviews for this figurine
+        dataMapper.getAllReviewsByFigurine(targetId, (error, result) => {
+          if (error) {
+            console.error(err);
+            response.status(500).send(err);
+          } else {
+            const reviews = result.rows;
+            // we render the 'article' view while passing on the figurine and reviews
+            response.render('article', {
+              current: 'article',
+              figurine,
+              reviews
+            });
+          }
+        });
       }
     });
-
   }
 
 };

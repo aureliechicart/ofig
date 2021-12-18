@@ -41,7 +41,7 @@ const bookmarksController = {
 
   // method to remove a favorite
   deleteBookmark: (request, response) => {
-    // if the bookmarks array stored in the session is emty, we send a message
+    // if the bookmarks array stored in the session is empty, we send a message
     if (!request.session.bookmarks) {
       response.send('y a rien la dedans')
     };
