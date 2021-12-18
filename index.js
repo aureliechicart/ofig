@@ -11,6 +11,10 @@ const PORT = process.env.PORT || 5050;
 
 const app = express();
 
+// setting template engine and ejs views folder
+app.set('view engine', 'ejs');
+app.set('views', './app/views');
+
 // serving static files stored in "integration" folder
 app.use(express.static('integration'));
 

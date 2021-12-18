@@ -4,14 +4,16 @@ const mainController = {
 
   // method for home page
   homePage: (request, response) => {
-    const filePath = path.resolve(__dirname + '/../../integration/accueil.html');
-    response.sendFile(filePath);
+    response.render('accueil.ejs', {
+      current: 'homepage'
+    });
   },
 
   // method for article page
   articlePage: (request, response) => {
-    const filePath = path.resolve(__dirname + '/../../integration/article.html');
-    response.sendFile(filePath);
+    response.render('article.ejs', {
+      current: 'article'
+    })
   }
 
 };
