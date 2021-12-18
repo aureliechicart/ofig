@@ -10,7 +10,7 @@ const router = express.Router();
 router.get('/', mainController.homePage);
 
 // article page
-router.get('/article', mainController.articlePage);
+router.get('/article/:id', mainController.articlePage);
 
 // shopping cart page
 router.get('/bookmarks', bookmarksController.bookmarksPage);
