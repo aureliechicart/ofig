@@ -12,8 +12,14 @@ router.get('/', mainController.homePage);
 // article page
 router.get('/article/:id', mainController.articlePage);
 
-// shopping cart page
+// bookmark page
 router.get('/bookmarks', bookmarksController.bookmarksPage);
+
+// adding a favorite
+router.get('/bookmarks/add/:id', bookmarksController.addBookmark);
+
+// removing a favorite
+router.get('/bookmarks/delete/:id', bookmarksController.deleteBookmark);
 
 // exporting router 
 module.exports = router;
