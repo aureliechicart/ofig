@@ -30,8 +30,10 @@ const bookmarksController = {
         response.status(500).send(error);
       } else {
         const figurine = result.rows[0];
-        // we add the found figurine to the bookmarks array 
-        request.session.bookmarks.push(figurine);
+        // if the figurine doesn't already appear in the bookmarks array, we add it
+        if (!request.session.bookmarks.find(element => element.id === figurine.id)) {
+          request.session.bookmarks.push(figurine);
+        }
         // we redirect to the bookmarks path
         response.redirect('/bookmarks');
       }

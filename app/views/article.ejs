@@ -32,6 +32,22 @@
               </p>
               <h5>$<%=figurine.price%></h5>
               <p class="card-text">
+                <% let globalNote =0;
+                 for (const review of reviews) {
+                  globalNote += review.note;
+                 } 
+                 const average = Math.round(globalNote/reviews.length);
+                %>
+
+                Note moyenne : <% let index = 0;
+                while (index < average) { %>
+                &#9733;
+                <% index ++
+                }
+                while (index < 5) { %>
+                &#9734;
+                <% index ++
+                } %>
                 <a href="/bookmarks/add/<%=figurine.id%>" class="link-add-bookmarks">+ Ajouter au panier</a>
               </p>
             </div>

@@ -3,6 +3,7 @@ const express = require('express');
 // importing our controllers
 const mainController = require('./controllers/mainController');
 const bookmarksController = require('./controllers/bookmarksController');
+const errorController = require('./controllers/errorController');
 
 const router = express.Router();
 
@@ -25,6 +26,9 @@ router.get('/bookmarks/delete/:id', bookmarksController.deleteBookmark);
 
 // category page
 router.get('/category/:category', mainController.categoryPage);
+
+// 404 page
+router.use(errorController.notFound);
 
 // exporting router 
 module.exports = router;

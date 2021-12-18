@@ -20,7 +20,20 @@
         <% let index = 0
            for (const review of reviews) { %>
         <section>
-          <h5><%= review.title %> &nbsp; <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small></h5>
+          <h5>
+            <%=review.title%> &nbsp;
+            <small class="text-muted">
+              <% let indexNote = 0;
+                while (indexNote < review.note) { %>
+                &#9733;
+              <% indexNote ++
+                }
+                while (indexNote < 5) { %>
+                &#9734;
+              <% indexNote ++
+                } %>
+            </small>
+          </h5>
           <p class="review-author">par <%= review.author %></p>
           <p><%= review.message %></p>
         </section>

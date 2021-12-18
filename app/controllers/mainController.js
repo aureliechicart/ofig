@@ -12,14 +12,22 @@ const mainController = {
       } else {
         // we store the rows returned by the database in a variable
         const figurines = result.rows;
-        // we pass on the result to the 'accueil' ejs view
-        // we pass on a property called current to set a style conditionnally on the link of the current page
-        response.render('accueil', {
-          current: 'homepage',
-          figurines
-        });
-      }
-    });
+        // we also get all reviews for this figurine
+        dataMapper.getAllReviews((error, result) => {
+          if (error) {
+            response.status(500).send(error);
+          } else {
+            const reviews = result.rows;
+            response.render('accueil', {
+              current: 'homepage',
+              figurines,
+              reviews
+            });
+          }
+        }
+        )
+      };
+    })
   },
 
   // method for article page
