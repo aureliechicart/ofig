@@ -6,6 +6,8 @@ const bookmarksController = require('./controllers/bookmarksController');
 
 const router = express.Router();
 
+router.use(mainController.menuInitializer);
+
 // home page
 router.get('/', mainController.homePage);
 
@@ -20,6 +22,9 @@ router.get('/bookmarks/add/:id', bookmarksController.addBookmark);
 
 // removing a favorite
 router.get('/bookmarks/delete/:id', bookmarksController.deleteBookmark);
+
+// category page
+router.get('/category/:category', mainController.categoryPage);
 
 // exporting router 
 module.exports = router;

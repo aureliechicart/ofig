@@ -14,6 +14,15 @@ const dataMapper = {
     getAllReviewsByFigurine: (figurineId, callback) => {
         const sql = `SELECT * FROM "review" WHERE "figurine_id" = $1`;
         client.query(sql, [figurineId], callback);
+    },
+    figurineCategoryCounter : (category, callback) => {
+        const sql = `SELECT COUNT (*) FROM "figurine" WHERE "category" = $1`;
+
+        client.query(sql, [category], callback);
+    },
+    getFigurinesByCategory : (category, callback) => {
+        const sql = `SELECT * FROM "figurine" WHERE "category" ~~* $1`;
+      client.query(sql, ["%"+category+"%"], callback);
     }
 };
 
