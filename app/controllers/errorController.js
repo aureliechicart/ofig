@@ -1,6 +1,8 @@
 const errorController = {
   notFound : (request, response) => {
-      response.render('404');
+    response.render('404', {
+        current: 'homepage'
+      });
   }
 }
 
