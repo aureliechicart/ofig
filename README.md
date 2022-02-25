@@ -3,7 +3,7 @@
 ## Introduction
 
 This project has been developed for learning purposes.<br>
-It is a Final Fantasy action figures shopping website. You can display the figures by category, display the details and reviews of a figure, and mark/remove figures as favorites. No possibility to buy them yet! :D
+It is a Final Fantasy action figures shopping website. You can display the figures by category, display the details and reviews of a figure, and mark/remove figures as favorites. No possibility to buy them yet! :grin:
 
 ## Learning goals
 
